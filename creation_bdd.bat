@@ -1,1 +1,0 @@
-mysql -u root -p --execute="source bibliotheque.sql"
