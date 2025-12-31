@@ -5,12 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class BDDbilbio {
-    // L'hôte est le nom du service Docker : 'mariadb'
-    private static final String URL = "jdbc:mysql://localhost:3307/bibliotheque"; 
-    
-    // Identifiants correspondant à votre docker-compose.yml
+    // 'mariadb' est le nom du service dans le docker-compose
+    // 3306 est le port interne du conteneur
+    private static final String URL = "jdbc:mysql://mariadb:3306/bibliotheque"; 
     private static final String USER = "root"; 
-    private static final String PASSWORD = "rootpassword"; 
+    private static final String PASSWORD = "root"; // Aligné sur ton nouveau compose
+    // ... reste du code
 
     public static Connection getConnection() throws SQLException {
         try {
