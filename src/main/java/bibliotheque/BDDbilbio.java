@@ -15,7 +15,7 @@ public class BDDbilbio {
     public static Connection getConnection() throws SQLException {
         try {
             // Nécessite la dépendance MySQL Connector/J !
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("org.mariadb.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             System.err.println("Driver JDBC non trouvé.");
             e.printStackTrace();
