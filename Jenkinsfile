@@ -1,17 +1,19 @@
 pipeline {
     agent none
+    // Ajoute cette section pour que Jenkins trouve Maven
+    tools {
+        maven 'maven-3' // Remplace 'maven-3' par le nom configuré dans Jenkins -> Global Tool Configuration
+    }
     stages {
         stage('Compilation & TU') {
             agent { label 'agent-linux' }
             steps {
-                // Exécute uniquement les tests dans src/test/java
                 sh 'mvn clean test' 
             }
         }
         stage('Tests Fonctionnels (Windows)') {
             agent { label 'agent-windows' }
             steps {
-                // Exécute spécifiquement le test fonctionnel sur Windows
                 bat 'mvn test -Dtest=EmpruntTest'
             }
         }
